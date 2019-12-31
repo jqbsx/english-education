@@ -154,6 +154,24 @@ body,div{padding: 0;margin: 0;}
 
 
 
+        var ua = window.navigator.userAgent;
+         var   isQQBrowser = /(?:MQQBrowser | QQ)/.test(ua),
+            isWindowsPhone = /(?:Windows Phone)/.test(ua),
+            isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
+            isAndroid = /(?:Android)/.test(ua),
+            isFireFox = /(?:Firefox)/.test(ua),
+            isChrome = /(?:Chrome|CriOS)/.test(ua),
+            isIpad = /(?:iPad|PlayBook)/.test(ua),
+            isTablet = /(?:iPad|PlayBook)/.test(ua)||(isFireFox && /(?:Tablet)/.test(ua)),
+            isSafari = /(?:Safari)/.test(ua),
+            isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+            isOpen= /(?:Opera Mini)/.test(ua),
+            isUC = /(?:UCWEB|UCBrowser)/.test(ua),
+            isPc = !isPhone && !isAndroid && !isSymbian;
+
+
+
+
         function sleep(numberMillis) {
 
             var now = new Date();
@@ -309,7 +327,9 @@ body,div{padding: 0;margin: 0;}
             "What's wrong with you?",
             "Does Lisa have a stomachache?",
 
-            "Hi, I'm Tom. My friend and I are feeling bad today.I have a bad cold. ???",
+            "Hi, I'm Tom. My friend and I are feeling bad today.I have a bad cold. ??? too much cake yesterday, so he has stomachache this morning. \
+            Peter hurt his foot, he should stay in bed . Lily should see the dentist, because she has a toothache. Lisa has a fever, she can't go to \
+            school.How about Ben? He has a headache with sad. ",
             // unit 2
             "Turn left at the corner please.",
             "Go straight to the park.",
@@ -332,7 +352,8 @@ body,div{padding: 0;margin: 0;}
             "Mom, where are we going now? We are looking for a bus stop.  Where are they going?",
             "Gogo, we are going to the movie theater. Yean, let's go and see a movie. Are the going to see a movie? ",
 
-            "???",
+            "Mike is new in Zhuhai, he comes from London, He is going to the  ??? park. He doesn't have map, so he need to ask for a police officer for help. The \
+             plice officer tells him to go straight to the bus stop and turn left, the park is next to the supermarket.",
             //unit 3
             "What's wrong with you?",
             "It's cold , you should put on your sweat.",
@@ -355,7 +376,9 @@ body,div{padding: 0;margin: 0;}
             "Gogo, what are you doing? I'm eating icecream and drinking some juice?",
             "Jack, can you eat planty of green food? It's good for you.   What's green food?",
 
-            "341 ???",
+            "Tom and Jack are good friends, Tom doesn't like playing sports and eating green food. He is eating some icecream , cheese and hanbgurs . \
+             His is unhealth. Jack likes running and playing basketball, he likes eating enough vegetables, He eats them everyday. Eating planty of vegetable is \
+             good for us.",
             // unit 4
             "This is a beautyful park.",
             "It's warm in spring.",
@@ -378,17 +401,21 @@ body,div{padding: 0;margin: 0;}
             "Mom, where are my socks?",
             "The cat is wet, what can we do for the little cat?",
 
-            "441 ???",
+            "Yesterday was Sunday, it was sunny and hot. There was a great beath party. There were a lot of people on the beath. Some danced to music. \
+             Some people played games.Some girls played beach vollyball. They were all happy. After the part, the beach ware dirty.  \
+            There were trash everywhere.",
 
             //unit 5
             "Jenny is reading a book about animals.",
-            "There is a book on the wood???.",
+            "There is a book on the ward.",
             "Mr. Lee goes to work on foot.",
             "Open your mouth, please.",
             "Divid went to sking in Canada last winter.",
             "There are lots of red leafs in the park.",
 
-            "521???",
+            "Last week, Gogo went to Tailand . It was a great trip. Gogo did a lot of interesting things in Tailand. First , he visited his friends,\
+            and he planted the tree with his friend, next ??? listen some music, the music was great then in the evening, he drawn an nice picture for his friend.\
+           after he was hungry. He ate some food. The food was tasty. He loved it. ",
 
             "Was the weather hot yesterday?",
             "Where did he come from?",
@@ -397,16 +424,17 @@ body,div{padding: 0;margin: 0;}
             "What did you do in circus park?",
             "Jeany hurt her leg last summer, she was in the hospital.  What was her summer like?",
 
-            "541 ???"
+            "Last fall , my sister and I was in USA , it was cold and windy there. We visited the parks. The parks were beautyful. There were a lot of red leafs in the park.\
+             We watched a great circus show in the big park. We had a lot of fun . The food was great. We all liked the food very much. We stayed in USA for a week.  "
         ];
 
         var data_array_time = [
             //unit 1
             48, 62,
-            65, 75,
+            65, 75.8,
             80, 93,
             95, 105,
-            110, 119,
+            108.5, 119,
             122, 131,
 
             146, 160,
@@ -820,9 +848,17 @@ body,div{padding: 0;margin: 0;}
             //sleep(5000);
             //btn_stop_click() 
              
-             label_info.innerHTML = "id 12314";
-            //alert("init！");
-            tcofia = setInterval("timer_callback_only_for_init_andrio()", 1000);
+            label_info.innerHTML = "id 12314";
+            if (isPc) {
+
+            } else {
+                //alert("init！");
+                if (isAndroid) {
+                    tcofia = setInterval("timer_callback_only_for_init_andrio()", 1000);
+                } else {
+                    tcofia = setInterval("timer_callback_only_for_init_andrio()", 2000);
+                }
+            }
             
         }
         
@@ -840,6 +876,7 @@ body,div{padding: 0;margin: 0;}
                     cur_init_player = cur_init_player + 1;
                     break;
                 case 7:
+                    label_info.innerHTML = "init finished." ;
                     clearInterval(tcofia);
                     pause_all_player();
                     break;

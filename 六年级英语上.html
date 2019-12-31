@@ -1,0 +1,1750 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta name="author" content="dony">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>六年级英语(上)</title>
+<style type="text/css">
+
+body,div{padding: 0;margin: 0;}
+.m-main{width:560px; height: 100%; margin: 3% auto; background-color:#30a5ff;}
+.m-main video{display: none; }
+.m-main .player {
+  width: 100%;
+  height: 150px;
+  position: relative;
+  bottom: 0px;
+}
+.m-main .player>a{display: inline-block; width: 20%; margin: 0 auto; padding: 5%; color: #FFF; text-align: center;}
+.m-main .play-box {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.m-main .play-box .left {
+  width: 100%;
+  float: left;
+}
+
+.m-main .play-box .left p.timeline { width: 70%;height: 10px; background-color: rgba(216, 216, 216, 0.5); border-radius: 5px; margin:30px auto 0; position: relative; z-index: 2; }
+.m-main .play-box .left p.timeline span {position: relative; width: 0px; height: 10px; background-color: #FFF; border-radius: 5px; display: block; -webkit-transition: width ease-out 0.3s;-o-transition: width ease-out 0.3s;transition: width ease-out 0.3s;}
+.m-main .play-box .left p.timeline span:after{content: ""; position: absolute; top: -4px; right:-0.6rem;width: 1.2rem; height:1.2rem; border-radius: 50%;background-color: #FFF;}
+.m-main .play-box .left div.info { height: 26px; line-height: 26px; font-size: 14px; color: #000; position: relative; top: -18px; margin:0 10px; z-index: 1;color: #FFF;}
+.m-main .play-box .left div.info .size { float: left; display: block;}
+.m-main .play-box .left div.info .timeshow { float: right; display: block;}
+</style>
+</head>
+<body onload='init()'>
+    <!--
+        <div class="m-main">
+        <div class="player">
+            <a href="javascript:void(0)" rel="external nofollow" rel="external nofollow" id="js-play">播放</a>
+            <a href="javascript:void(0)" rel="external nofollow" rel="external nofollow" id="js-pause">暂停</a>
+            <div class="play-box">
+                <div class="left">
+                    <p class="timeline"><span style=""></span></p>
+                    <div class="info">
+                        <span class="size">00:00</span>
+                        <span class="timeshow">00:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="video">
+            <video controls autoplay name="media" id="js-video"><source src="http://chipsguide.snaillove.com/Public/Uploads/file_server_storage/Audio/2017/03/23/19/192_20003137.mp3" type="video/mp4"></video>
+        </div>
+    </div>
+
+    -->
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        /*
+
+        $(function () {
+            AudioControl('js-video')
+            function AudioControl(id) {
+                // 音频控制进度条
+                var audio = document.getElementById(id);
+                $(audio).on('loadedmetadata', function () {
+                    audio.pause();
+                    // 进度条控制
+                    $(document).on('touchend', '.timeline', function (e) {
+                        var x = e.originalEvent.changedTouches[0].clientX - this.offsetLeft;
+                        var X = x < 0 ? 0 : x;
+                        var W = $(this).width();
+                        var place = X > W ? W : X;
+                        audio.currentTime = (place / W).toFixed(2) * audio.duration
+                        $(this).children().css({ width: (place / W).toFixed(2) * 100 + "%" })
+                    });
+                    // 播放
+                    $(document).on('click', '#js-play', function () {
+                        audio.play()
+                    });
+                    // 暂停
+                    $(document).on('click', '#js-pause', function () {
+                        audio.pause()
+                    });
+                })
+                setInterval(function () {
+                    var currentTime = audio.currentTime;
+                    setTimeShow(currentTime);
+                }, 1000);
+                // 设置播放时间
+                function setTimeShow(t) {
+                    t = Math.floor(t);
+                    var playTime = secondToMin(audio.currentTime);
+                    $(".size").html(playTime);
+                    $('.timeshow').text(secondToMin(audio.duration))
+                    $('.timeline').children().css({ width: (t / audio.duration).toFixed(4) * 100 + "%" })
+                }
+                // 计算时间
+                function secondToMin(s) {
+                    var MM = Math.floor(s / 60);
+                    var SS = s % 60;
+                    if (MM < 10)
+                        MM = "0" + MM;
+                    if (SS < 10)
+                        SS = "0" + SS;
+                    var min = MM + ":" + SS;
+                    return min.split('.')[0];
+                }
+            }
+        })
+        */
+    </script>
+
+
+
+
+    <script>
+        var x = document.getElementById("lesson");
+        var cur = 0;
+        var flag = 0;
+
+        var func = function () {
+            if (cur > 0 && x.currentTime >= cur) {
+                cur = 0;
+                x.pause();
+                x.removeEventListener("timeupdate", func);
+            }
+        };
+
+        function startplay(starttime, endtime) {
+            if (flag == 0) {
+                flag = 1;
+                x.autoplay = "autoplay";
+                x.load();
+            }
+            x.currentTime = starttime;
+            x.fastSeek(starttime);
+            cur = endtime;
+            x.addEventListener("timeupdate", func);
+            x.play();
+        }
+
+        function stopplay() {
+            cur = 0;
+            x.pause();
+        }
+
+
+
+        function sleep(numberMillis) {
+
+            var now = new Date();
+            var exitTime = now.getTime() + numberMillis;
+            while (true) {
+                now = new Date();
+                if (now.getTime() > exitTime)
+                    return;
+            }
+        }
+        //start from 0 (include 0)
+        var index_array = new Array();
+        var level_step = 10;
+        var index = 0;
+        var total_question_num = 0;
+        var search_list = new Array();
+        var search_result_unit = 1;
+        var search_result_part = 1;
+        var search_result_num = 1;
+
+        function init_index_array(unit, part, num) {
+            var tt = (unit * level_step + part) * level_step + num;
+            index_array[tt] = index;
+            search_list[index] = tt;
+            index++;
+            total_question_num = index;
+        }
+        function get_index(unit, part, num) {
+            return index_array[(unit * level_step + part) * level_step + num];
+        }
+        function get_question_postion_from_index(index) {
+            search_result_num = index % level_step;
+            search_result_part = ((index - search_result_num) / level_step) % level_step;
+            search_result_unit = (index - search_result_num - search_result_part * level_step) / (level_step * level_step);
+
+        }
+
+        var data_array_diff = [0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ];
+        var data_array_txt = ["I have a toothache, I should see the dentist.",
+            "Don't worry, it's easy.",
+            "What's the matter? I have a cold.",
+            "I hurt my foot.",
+            "Is this your purple purse? ",
+            "I feel sick. ",
+
+            "What should he do? He should take some medicine.",
+            "Ben hurt his knees, he should be care for next time.",
+            "Does Jack have a toothache? No, he has a headache. ",
+            "What's the matter with him? He has a stomchache. ",
+            "What's wrong with Gogo?  He has a bad cold, he should stay at home. ",
+            "The boy has a toothache, he should see the dentist. ",
+
+            "Do you hurt your foot? ",
+            "Are they digging a well? ",
+            "Oh, NO, Tome, you have a bad cold and fever. What's wrong with Tom?  ",
+            "What's wrong with you , Tony and Jeany?  ",
+            "What's wrong with you?",
+            "Does Lisa have a stomachache?",
+
+            "Hi, I'm Tom. My friend and I are feeling bad today.I have a bad cold. ???",
+            // unit 2
+            "Turn left at the corner please.",
+            "Go straight to the park.",
+            "The bank is across from the shopping mall.",
+            "Let's ride on the horse.",
+            "There are forty students in my class.",
+            "Let's go out and do sports.",
+
+            "Execuse me, where is the bus stop? It is over there.",
+            "This sign means you must not turn left.",
+            "Is the bank next to the shopping mall? No, it's across from the mall.",
+            "Turn left and walk for one block.",
+            "Look! you can't ??? bikes here.",
+            "Where is the library? It's next to the candy stool.",
+
+            "Did you hurt your foot?",
+            "May I turn left here? No, you shoud turn right.  What should I do？",
+            "Is the hospital next to the bank? No, it isn't. it's next to the park.  Where is the hospital?",
+            "Execuse me, where is the candy shop? Go straight to the mall and turn left. Where is the candy shop?",
+            "Mom, where are we going now? We are looking for a bus stop.  Where are they going?",
+            "Gogo, we are going to the movie theater. Yean, let's go and see a movie. Are the going to see a movie? ",
+
+            "???",
+            //unit 3
+            "What's wrong with you?",
+            "It's cold , you should put on your sweat.",
+            "Take a shower often, wash your body from head to feet.",
+            "Don't take too much chocalate, it is bad for your teeth.",
+            "Have a break time, don't sit, do some exersice.",
+            "Do you have any good habits?",
+
+            "Gogo drinks too much cola, he has stomachache.",
+            "What's bad for me? Too much candy.",
+            "Is it windy and rainy today? No, it's sunny and hot.",
+            " ??? is unhealth, he is feeling sick.",
+            "I eat enough vegetables everyday.",
+            "Ami likes drinking water, she drinks enough water everyday.",
+
+            "Lisa eats too much chocalate. Does Lisa eat too much chocalate?",
+            "Sometimes I read in bed for a long time. Is that bad?",
+            "Ben only eats healthy food and do exercise everyday. Does Ben have good habits?",
+            "There are three boys here. how many apples do they need?",
+            "Gogo, what are you doing? I'm eating icecream and drinking some juice?",
+            "Jack, can you eat planty of green food? It's good for you.   What's green food?",
+
+            "341 ???",
+            // unit 4
+            "This is a beautyful park.",
+            "It's warm in spring.",
+            "It was cold night.",
+            "Are those your shoes? No, they aren't.",
+            "Katy and her family were in Canada last week.",
+            "Jack is a heavy boy, he should take more exercise.",
+
+            "It is a sunny day today.",
+            "My little dog always makes self dirty, but I like it , it is cute.",
+            "The shoe is wet.",
+            "What is the bed room like now? It is tidy and clean.",
+            "The shoes were dirty before.",
+            "The desk is mess now, please make it tidy.",
+
+            "Was it hot yestoday?",
+            "What was the park like?",
+            "What was the weather like this morning?",
+            "What was your school bag like last night?",
+            "Mom, where are my socks?",
+            "The cat is wet, what can we do for the little cat?",
+
+            "441 ???",
+
+            //unit 5
+            "Jenny is reading a book about animals.",
+            "There is a book on the wood???.",
+            "Mr. Lee goes to work on foot.",
+            "Open your mouth, please.",
+            "Divid went to sking in Canada last winter.",
+            "There are lots of red leafs in the park.",
+
+            "521???",
+
+            "Was the weather hot yesterday?",
+            "Where did he come from?",
+            "Were you in Shanghai last week?",
+            "Where were they?",
+            "What did you do in circus park?",
+            "Jeany hurt her leg last summer, she was in the hospital.  What was her summer like?",
+
+            "541 ???"
+        ];
+
+        var data_array_time = [
+            //unit 1
+            48, 62,
+            65, 75,
+            80, 93,
+            95, 105,
+            110, 119,
+            122, 131,
+
+            146, 160,
+            165, 182,
+            184, 200,
+            204, 218,
+            222, 243,
+            246, 260,
+
+            274, 285,
+            288, 298,
+            303, 332,
+            333, 348,
+            350, 360,
+            364, 373,
+
+
+            384, 478,
+            //unit 2
+
+            48, 58,
+            63, 73,
+            76, 87,
+            92, 101,
+            104, 117,
+            122, 134,
+
+            149, 167,
+            171, 183,
+            187, 207,
+            211, 222,
+            226, 237,
+            242, 258,
+
+
+
+            275, 283,
+            287.5, 310,
+            314, 344,
+            347, 376,
+            380, 405,
+            410, 440,
+
+            453, 518,
+
+            //unit 3
+            48.6, 56.1,
+            60.8, 72.7,
+            77.4, 92.2,
+            96.6, 110.8,
+            113.8, 130.9,
+            135.9, 145.0,
+
+            163.4, 179.0,
+            183.5, 196.8,
+            200.5, 218.6,
+            222.3, 236.1,
+            239.9, 251.3,
+            256.5, 274.2,
+
+
+            291.6, 312.0,
+            316.5, 334.7,
+            339.6, 364.2,
+            369.3, 387.8,
+            392.6, 422.5,
+            425, 451,
+
+            462, 542.4,
+
+            // unit 4
+
+            48.4, 57.3,
+            61.8, 70.2,
+            75.2, 83.1,
+            87.3, 101.8,
+            106.4, 119.4,
+            124.0, 139.6,
+
+            155.5, 164.3,
+            168.8, 189.2,
+            193.6, 201.0,
+            205.8, 220.9,
+            225.4, 235.0,
+            240.3, 253.5,
+
+            270.6, 278.6,
+            283.4, 291.7,
+            296.4, 306.0,
+            310.3, 322.3,
+            326.5, 336.9,
+            342.1, 355.7,
+
+            370.3, 446.1,
+
+
+            // unit 5
+
+
+            49.1, 60.0,
+            64.4, 73.0,
+            77.6, 87.8,
+            92.2, 101.8,
+            106.6, 119.0,
+            123.8, 134.9,
+
+            145.5, 245.4,
+
+            262.5, 271.8,
+            276.3, 284.2,
+            289.0, 299.1,
+            303.5, 310.3,
+            315.1, 325.6,
+            330.4, 354.4,
+
+            368.9, 453.1];
+
+
+
+
+        /*
+         *
+         *   play_item(unit, part, num)
+         *       load new file, if necc
+         *       set_player_start_and_end_time(start_time, end_time)
+         *          play_timer()
+         *             get_next_item()
+         *             play_item()
+         *        reset_target()
+         * */
+
+        var label_info;
+
+        var player;
+        var player_array = new Array();
+
+        var play_speed_factor = 1;
+
+        var global__unit = 1;
+
+        var global__part = 1;
+        var global__num = 1;
+        var timer;
+
+        var mode_loop = 3; //continue mode
+
+        var mode_stop = 0;
+
+        var next__unit = 1;
+        var next__part = 1;
+        var next__num = 1;
+
+        var max__unit = 5;
+        var max__part = 1;
+        var max__num = 1;
+
+
+
+        var cur_time;
+        var start_time;
+        var end_time;
+
+        var array_unit = new Array();
+
+
+
+        var btn_unit1;
+        var btn_unit2;
+        var btn_unit3;
+
+        var btn_unit4;
+        var btn_unit5;
+        var btn_unit6; //noop
+        var btn_unit7; //noop
+        var btn_unit8; //noop
+
+
+        var btn_part1;
+
+        var btn_part2;
+
+        var btn_part3;
+
+        var btn_part4;
+        var btn_part5;
+        var btn_part6;
+
+        var btn_init_color;
+        var btn_play_color;
+        var file_chooser;
+
+        var btn_loop;
+        var btn_once;
+        var btn_continue;
+        var btn_random;
+
+        var btn_get_start_end_time;
+        var btn_show_start_end_time;
+
+
+        function init() {
+            btn_init_color = "rgb(15,195,195)"
+            btn_play_color = "rgb(195,15,195)";
+
+
+            time_segment = new Array();
+
+            btn_get_start_end_time = document.getElementById("btn_get_start_end_time");
+            btn_show_start_end_time = document.getElementById("btn_show_start_end_time");
+
+            btn_loop = document.getElementById("btn_loop");
+            btn_once = document.getElementById("btn_once");
+            btn_continue = document.getElementById("btn_continue");
+            btn_random = document.getElementById("btn_random");
+            restore_btn_color(btn_loop, btn_init_color);
+            restore_btn_color(btn_once, btn_init_color);
+            restore_btn_color(btn_continue, btn_play_color);
+            restore_btn_color(btn_random, btn_init_color);
+
+            btn_hide_show_label_txt_click();
+            btn_hide_show_audio_controlsclick();
+            btn_hide_show_debug_tool_click();
+            btn_hide_show_debug_tool_click();
+
+            file_chooser = document.getElementById("mp3_file");
+            label_info = document.getElementById("label_txt");
+            //label_info.style.fontSize = "24px";
+            //label_info.style.fontSize = "large";
+            label_info.style.fontSize = label_info_fontSize_default + 'px';
+            //player_array[0] = 0;
+            player_array[1] = document.getElementById('player1');
+            player_array[2] = document.getElementById('player2');
+            player_array[3] = document.getElementById('player3');
+            player_array[4] = document.getElementById('player4');
+            player_array[5] = document.getElementById('player5');
+            player = player_array[1];
+
+            btn_unit1 = document.getElementById('btn_unit1');
+            btn_unit2 = document.getElementById('btn_unit2');
+            btn_unit3 = document.getElementById('btn_unit3');
+            btn_unit4 = document.getElementById('btn_unit4');
+            btn_unit5 = document.getElementById('btn_unit5');
+
+            btn_part1 = document.getElementById('btn_part1');
+            btn_part2 = document.getElementById('btn_part2');
+            btn_part3 = document.getElementById('btn_part3');
+            btn_part4 = document.getElementById('btn_part4');
+            btn_part5 = document.getElementById('btn_part5');
+            btn_part6 = document.getElementById('btn_part6');
+
+            btn_num1 = document.getElementById('btn_num1');
+            btn_num2 = document.getElementById('btn_num2');
+            btn_num3 = document.getElementById('btn_num3');
+            btn_num4 = document.getElementById('btn_num4');
+            btn_num5 = document.getElementById('btn_num5');
+            btn_num6 = document.getElementById('btn_num6');
+            btn_num7 = document.getElementById('btn_num7');
+            btn_num8 = document.getElementById('btn_num8');
+            btn_num9 = document.getElementById('btn_num9');
+            btn_num10 = document.getElementById('btn_num10');
+
+
+            btn_part5.style.display = 'none';
+            btn_part6.style.display = 'none';
+            btn_num7.style.display = 'none';
+            btn_num8.style.display = 'none';
+            btn_num9.style.display = 'none';
+            btn_num10.style.display = 'none';
+            //如果想要调试，请注释掉下一行
+            document.getElementById('btn_hide_show_debug_tool').style.display = 'none';
+
+            btn_unit1.style.background = btn_init_color;
+            btn_unit2.style.background = btn_init_color;
+            btn_unit3.style.background = btn_init_color;
+            btn_unit4.style.background = btn_init_color;
+            btn_unit5.style.background = btn_init_color;
+
+            btn_part1.style.background = btn_init_color;
+            btn_part2.style.background = btn_init_color;
+            btn_part3.style.background = btn_init_color;
+            btn_part4.style.background = btn_init_color;
+            btn_part5.style.background = btn_init_color;
+            btn_part6.style.background = btn_init_color;
+
+            btn_num1.style.background = btn_init_color;
+            btn_num2.style.background = btn_init_color;
+            btn_num3.style.background = btn_init_color;
+            btn_num4.style.background = btn_init_color;
+            btn_num5.style.background = btn_init_color;
+            btn_num6.style.background = btn_init_color;
+            btn_num7.style.background = btn_init_color;
+            btn_num8.style.background = btn_init_color;
+            btn_num9.style.background = btn_init_color;
+            btn_num10.style.background = btn_init_color;
+
+            //player.load("./六年级上册第一单元.mp3")
+            init_index_array(1, 1, 1);
+            init_index_array(1, 1, 2);
+            init_index_array(1, 1, 3);
+            init_index_array(1, 1, 4);
+            init_index_array(1, 1, 5);
+            init_index_array(1, 1, 6);
+
+            init_index_array(1, 2, 1);
+            init_index_array(1, 2, 2);
+            init_index_array(1, 2, 3);
+            init_index_array(1, 2, 4);
+            init_index_array(1, 2, 5);
+            init_index_array(1, 2, 6);
+
+            init_index_array(1, 3, 1);
+            init_index_array(1, 3, 2);
+            init_index_array(1, 3, 3);
+            init_index_array(1, 3, 4);
+            init_index_array(1, 3, 5);
+            init_index_array(1, 3, 6);
+
+            init_index_array(1, 4, 1);
+
+            init_index_array(2, 1, 1);
+            init_index_array(2, 1, 2);
+            init_index_array(2, 1, 3);
+            init_index_array(2, 1, 4);
+            init_index_array(2, 1, 5);
+            init_index_array(2, 1, 6);
+            init_index_array(2, 2, 1);
+            init_index_array(2, 2, 2);
+            init_index_array(2, 2, 3);
+            init_index_array(2, 2, 4);
+            init_index_array(2, 2, 5);
+            init_index_array(2, 2, 6);
+            init_index_array(2, 3, 1);
+            init_index_array(2, 3, 2);
+            init_index_array(2, 3, 3);
+            init_index_array(2, 3, 4);
+            init_index_array(2, 3, 5);
+            init_index_array(2, 3, 6);
+            init_index_array(2, 4, 1);
+
+            init_index_array(3, 1, 1);
+            init_index_array(3, 1, 2);
+            init_index_array(3, 1, 3);
+            init_index_array(3, 1, 4);
+            init_index_array(3, 1, 5);
+            init_index_array(3, 1, 6);
+            init_index_array(3, 2, 1);
+            init_index_array(3, 2, 2);
+            init_index_array(3, 2, 3);
+            init_index_array(3, 2, 4);
+            init_index_array(3, 2, 5);
+            init_index_array(3, 2, 6);
+            init_index_array(3, 3, 1);
+            init_index_array(3, 3, 2);
+            init_index_array(3, 3, 3);
+            init_index_array(3, 3, 4);
+            init_index_array(3, 3, 5);
+            init_index_array(3, 3, 6);
+            init_index_array(3, 4, 1);
+
+            init_index_array(4, 1, 1);
+            init_index_array(4, 1, 2);
+            init_index_array(4, 1, 3);
+            init_index_array(4, 1, 4);
+            init_index_array(4, 1, 5);
+            init_index_array(4, 1, 6);
+            init_index_array(4, 2, 1);
+            init_index_array(4, 2, 2);
+            init_index_array(4, 2, 3);
+            init_index_array(4, 2, 4);
+            init_index_array(4, 2, 5);
+            init_index_array(4, 2, 6);
+            init_index_array(4, 3, 1);
+            init_index_array(4, 3, 2);
+            init_index_array(4, 3, 3);
+            init_index_array(4, 3, 4);
+            init_index_array(4, 3, 5);
+            init_index_array(4, 3, 6);
+            init_index_array(4, 4, 1);
+
+            init_index_array(5, 1, 1);
+            init_index_array(5, 1, 2);
+            init_index_array(5, 1, 3);
+            init_index_array(5, 1, 4);
+            init_index_array(5, 1, 5);
+            init_index_array(5, 1, 6);
+            init_index_array(5, 2, 1);
+            init_index_array(5, 3, 1);
+            init_index_array(5, 3, 2);
+            init_index_array(5, 3, 3);
+            init_index_array(5, 3, 4);
+            init_index_array(5, 3, 5);
+            init_index_array(5, 3, 6);
+            init_index_array(5, 4, 1);
+            /*
+            player_array[1].play();
+            player_array[2].play();
+            player_array[3].play();
+            player_array[4].play();
+            player_array[5].play();
+            
+            sleep(3000);
+            pause_all_player();
+            */
+
+            //btn_unit1_click();
+            //btn_unit2_click();
+            //btn_unit3_click();
+            //btn_unit4_click();
+            //btn_unit5_click();
+            //btn_unit1_click();
+            //sleep(5000);
+            //btn_stop_click() 
+             
+             label_info.innerHTML = "id 12314";
+            //alert("init！");
+            tcofia = setInterval("timer_callback_only_for_init_andrio()", 1000);
+            
+        }
+        
+        var tcofia;
+        var cur_init_player = 1;
+        function timer_callback_only_for_init_andrio() {
+            switch (cur_init_player) {
+                case 1: case 2: case 3: case 4: case 5:
+                    label_info.innerHTML = "init" + cur_init_player;
+                    pause_all_player();
+                    player_array[cur_init_player].play();
+                    cur_init_player = cur_init_player + 1;
+                    break;
+                case 6:
+                    cur_init_player = cur_init_player + 1;
+                    break;
+                case 7:
+                    clearInterval(tcofia);
+                    pause_all_player();
+                    break;
+                default:
+                    break;
+            }
+            
+           
+        }
+
+        function btn_unit1_click() {
+
+            //reset_target(1, 1, 1);
+            //alert("btn_unit1_click！");
+
+            if (0) {
+                var text2 = "line 1. <br/>line 2. <br/>line 3.";
+                label_info.innerHTML = text2;
+                reload_mp3_file(global__unit, global__part, global__num);
+                countSecond();
+
+
+                //btn_unit1.style.background="red";
+                //btn_unit1.style.background = "gray";
+                //btn_unit1.style.background = "cyan";
+                btn_unit1.style.background = btn_play_color;
+                //$("#btn1").css("background","red");
+            }
+
+            play_item(1, 1, 1);
+
+        }
+
+        function btn_unit2_click() {
+            play_item(2, 1, 1);
+
+        }
+        function btn_unit3_click() {
+            play_item(3, 1, 1);
+
+        }
+        function btn_unit4_click() {
+            play_item(4, 1, 1);
+
+        }
+        function btn_unit5_click() {
+            play_item(5, 1, 1);
+
+        }
+
+
+
+        function btn_part1_click() {
+            play_item(global__unit, 1, 1);
+
+        }
+
+
+        function btn_part2_click() {
+            play_item(global__unit, 2, 1);
+
+        }
+        function btn_part3_click() {
+            play_item(global__unit, 3, 1);
+
+        }
+        function btn_part4_click() {
+            play_item(global__unit, 4, 1);
+
+        }
+        function btn_part5_click() {
+            play_item(global__unit, 5, 1);
+
+        }
+
+        function btn_num1_click() {
+            play_item(global__unit, global__part, 1);
+
+        }
+        function btn_num2_click() {
+            play_item(global__unit, global__part, 2);
+
+        }
+        function btn_num3_click() {
+            play_item(global__unit, global__part, 3);
+
+        }
+        function btn_num4_click() {
+            play_item(global__unit, global__part, 4);
+
+        }
+        function btn_num5_click() {
+            play_item(global__unit, global__part, 5);
+
+        }
+        function btn_num6_click() {
+            play_item(global__unit, global__part, 6);
+
+        }
+
+
+
+
+        function restore_btn_color(btn, color) {
+            btn.style.background = color;
+        }
+
+        function set_btn_background_color(unit, part, num, color) {
+            switch (unit) {
+                case 1:
+                    restore_btn_color(btn_unit1, color);
+                    break;
+                case 2:
+                    restore_btn_color(btn_unit2, color);
+                    break;
+                case 3:
+                    restore_btn_color(btn_unit3, color);
+                    break;
+                case 4:
+                    restore_btn_color(btn_unit4, color);
+                    break;
+                case 5:
+                    restore_btn_color(btn_unit5, color);
+                    break;
+            }
+
+            switch (part) {
+                case 1:
+                    restore_btn_color(btn_part1, color);
+                    break;
+                case 2:
+                    restore_btn_color(btn_part2, color);
+                    break;
+                case 3:
+                    restore_btn_color(btn_part3, color);
+                    break;
+                case 4:
+                    restore_btn_color(btn_part4, color);
+                    break;
+                case 5:
+                    restore_btn_color(btn_part5, color);
+                    break;
+                case 6:
+                    restore_btn_color(btn_part6, color);
+                    break;
+            }
+
+            switch (num) {
+                case 1:
+                    restore_btn_color(btn_num1, color);
+                    break;
+                case 2:
+                    restore_btn_color(btn_num2, color);
+                    break;
+                case 3:
+                    restore_btn_color(btn_num3, color);
+                    break;
+                case 4:
+                    restore_btn_color(btn_num4, color);
+                    break;
+                case 5:
+                    restore_btn_color(btn_num5, color);
+                    break;
+                case 6:
+                    restore_btn_color(btn_num6, color);
+                    break;
+                case 7:
+                    restore_btn_color(btn_num7, color);
+                    break;
+                case 8:
+                    restore_btn_color(btn_num8, color);
+                    break;
+                case 9:
+                    restore_btn_color(btn_num9, color);
+                    break;
+                case 10:
+                    restore_btn_color(btn_num10, color);
+                    break;
+            }
+
+
+        }
+
+        function set_all_btn_background_color(unit, part, num, color) {
+
+            restore_btn_color(btn_unit1, color);
+            restore_btn_color(btn_unit2, color);
+            restore_btn_color(btn_unit3, color);
+            restore_btn_color(btn_unit4, color);
+            restore_btn_color(btn_unit5, color);
+
+            restore_btn_color(btn_part1, color);
+            restore_btn_color(btn_part2, color);
+            restore_btn_color(btn_part3, color);
+            restore_btn_color(btn_part4, color);
+            restore_btn_color(btn_part5, color);
+            restore_btn_color(btn_part6, color);
+
+            restore_btn_color(btn_num1, color);
+            restore_btn_color(btn_num2, color);
+            restore_btn_color(btn_num3, color);
+            restore_btn_color(btn_num4, color);
+            restore_btn_color(btn_num5, color);
+            restore_btn_color(btn_num6, color);
+            restore_btn_color(btn_num7, color);
+            restore_btn_color(btn_num8, color);
+            restore_btn_color(btn_num9, color);
+            restore_btn_color(btn_num10, color);
+
+
+        }
+        function get_max_unit() {
+            max__unit = 5;
+        }
+        function get_max_part(unit) {
+            max__part = 0;
+            switch (unit) {
+                case 1:
+                    max__part = 4;
+                    break;
+                case 2:
+                    max__part = 4;
+                    break;
+                case 3:
+                    max__part = 4;
+                    break;
+                case 4:
+                    max__part = 4;
+                    break;
+                case 5:
+                    max__part = 4;
+                    break;
+            }
+            //alert("max__part is " + max__part);
+        }
+
+        function get_max_num(unit, part) {
+            max__num = 0;
+            switch (unit) {
+                case 1:
+                    switch (part) {
+                        case 1:
+                            max__num = 6;
+                            break;
+                        case 2:
+                            max__num = 6;
+                            break;
+                        case 3:
+                            max__num = 6;
+                            break;
+                        case 4:
+                            max__num = 1;
+                            break;
+
+                    }
+                    break;
+
+                case 2:
+                    switch (part) {
+
+                        case 1:
+                            max__num = 6;
+                            break;
+                        case 2:
+                            max__num = 6;
+                            break;
+                        case 3:
+                            max__num = 6;
+                            break;
+                        case 4:
+                            max__num = 1;
+                            break;
+
+                    }
+                    break;
+
+
+                case 3:
+                    switch (part) {
+                        case 1:
+                            max__num = 6;
+                            break;
+                        case 2:
+                            max__num = 6;
+                            break;
+                        case 3:
+                            max__num = 6;
+                            break;
+                        case 4:
+                            max__num = 1;
+                            break;
+
+                    }
+
+                    break;
+                case 4:
+                    switch (part) {
+                        case 1:
+                            max__num = 6;
+                            break;
+                        case 2:
+                            max__num = 6;
+                            break;
+                        case 3:
+                            max__num = 6;
+                            break;
+                        case 4:
+                            max__num = 1;
+                            break;
+
+                    }
+                    break;
+
+                case 5:
+                    switch (part) {
+                        case 1:
+                            max__num = 6;
+                            break;
+                        case 2:
+                            max__num = 1;
+                            break;
+                        case 3:
+                            max__num = 6;
+                            break;
+                        case 4:
+                            max__num = 1;
+                            break;
+
+                    }
+
+                    break;
+
+            }
+        }
+
+
+        function set_player_start_and_end_time(start_time, end_time) {
+            if (typeof (timer) != "undefined") {
+                //alert("undefined");
+                clearTimeout(timer);
+            }
+
+
+
+            player.currentTime = start_time;
+            timer = setTimeout(play_timer, ((end_time - start_time) * 1000 + 1) / play_speed_factor);
+        }
+        function play_timer() {
+
+            if (mode_loop == 1) { //loop one question
+                play_item(global__unit, global__part, global__num);
+            } else if (mode_loop == 2) { //once
+                pause_all_player(); // lazy way
+            } else if (mode_loop == 3) { // continue
+                get_next_item(global__unit, global__part, global__num);
+                play_item(next__unit, next__part, next__num);
+            } else if (mode_loop == 4) { // random
+                var tt = Math.floor(Math.random() * total_question_num);
+                //var target_index = search_list[tt];
+                get_question_postion_from_index(search_list[tt]);
+
+                //get_next_item(global__unit, global__part, global__num);
+                next__unit = search_result_unit;
+                next__part = search_result_part;
+                next__num = search_result_num;
+                play_item(next__unit, next__part, next__num);
+            }
+        }
+        function get_next_item(unit, part, num) {
+            var a;
+            var b;
+            var c;
+            a = unit; b = part; c = num;
+
+
+            get_max_num(unit, part);
+            if (num >= max__num) {
+                next__num = 1;
+                get_max_part(unit);
+                if (part >= max__part) {
+                    next__part = 1;
+                    get_max_unit();
+                    if (unit >= max__unit) {
+                        next__unit = 1;
+                        next__part = 1;
+                        next__num = 1;
+
+                    } else {
+                        next__num = 1;
+                        next__part = 1;
+
+                        next__unit = unit + 1;
+                    }
+                } else {
+                    next__num = 1;
+                    next__part = part + 1;
+                    next__unit = unit;
+
+                }
+
+            } else {
+                next__num = num + 1;
+                next__part = part;
+                next__unit = unit;
+
+            }
+
+            //debug
+            //alert("next is " + a+b+c+"---"+ next__unit + next__part + next__num +"===" +max__unit + max__part +max__num);
+        }
+
+        function switch_player(old_player, new_player) {
+
+            player_array[old_player].pause();
+            player = player_array[new_player];
+
+        }
+
+        function play_item(unit, part, num) {
+            if (unit == global__unit) {
+            } else {
+                switch_player(global__unit, unit);
+                if (0) {
+                    switch (unit) {
+                        case 1:
+                            //player.load("./六年级上册第一单元.mp3");
+                            load_mp3_file("./六年级上册第一单元.mp3");
+                            alert(" load 1");
+                            break;
+                        case 2:
+                            //player.load("./六年级上册第二单元.mp3");
+                            load_mp3_file("./六年级上册第二单元.mp3");
+                            alert(" load 2");
+                            break;
+                        case 3:
+                            player.load("./六年级上册第三单元.mp3");
+                            break;
+                        case 4:
+                            player.load("./六年级上册第四单元.mp3");
+                            break;
+                        case 5:
+                            player.load("./六年级上册第五单元.mp3");
+                            break;
+                        default:
+                            break;
+
+                    }
+                }
+
+
+            }
+            set_all_btn_background_color(global__unit, global__part, global__num, btn_init_color);// the lazy way
+            set_btn_background_color(unit, part, num, btn_play_color);
+            reset_target(unit, part, num);
+            if (unit < 0) {
+                // never
+                set_player_start_and_end_time(array_unit[unit][part][num][0], array_unit[unit][part][num][1]);
+                label_info.innerHTML = array_unit[unit][part][num][2];
+            } else {
+                //always this way
+                var tt = get_index(unit, part, num);
+                set_player_start_and_end_time(data_array_time[tt * 2], data_array_time[tt * 2 + 1]);
+                label_info.innerHTML = data_array_txt[tt];
+            }
+            player.play();
+
+            //reset_target(unit, part, num);
+
+
+
+        }
+
+
+        function reset_target(unit, part, num) {
+            global__unit = unit;
+            global__part = part;
+            global__num = num;
+        }
+        //
+        function reload_mp3_file(unit, part, num) {
+            var filename = "sound_" + unit + "_" + part + "_" + num + ".mp3";
+
+
+            player.load(filename);// if necc
+            player.play();
+
+            //player.currentTime = 30.5;
+            player.currentTime = array_unit[unit][part][num][0];
+
+            /*
+            var el3 = document.getElementById('file');
+
+
+
+            e13.text = filename;
+
+
+            onInputFileChange();
+            //player.source = filename;
+            //player.play(filename);
+            */
+            var x = document.getElementById("label_txt");
+
+            x.innerHTML = filename;
+        }
+
+        function load_mp3_file(filename) {
+
+            file_chooser.value = filename;
+            onInputFileChange();
+        }
+
+        function onInputFileChange() {
+            //var file = document.getElementById("mp3_file").files[0];
+            var file = file_chooser.files;
+            var url = URL.createObjectURL(file);
+            console.log(url);
+            document.getElementById("player").src = url;
+        }
+
+
+
+        function countSecond() {
+
+            //var tt = document.getElementById("label_txt");
+            global__unit++;
+            label_info.innerHTML = global__unit;
+            cur_time = player.currentTime;
+            if (cur_time > 40) {
+                player.currentTime = 20;
+            }
+
+            setTimeout("countSecond()", 1000)
+
+        }
+        function reset_all_play_speed() {
+
+            player_array[1].playbackRate = player.defaultPlaybackRate * play_speed_factor;
+            player_array[2].playbackRate = player.defaultPlaybackRate * play_speed_factor;
+            player_array[3].playbackRate = player.defaultPlaybackRate * play_speed_factor;
+            player_array[4].playbackRate = player.defaultPlaybackRate * play_speed_factor;
+            player_array[5].playbackRate = player.defaultPlaybackRate * play_speed_factor;
+
+            //player.playbackRate = player.playbackRate * play_speed_factor;
+        }
+
+        function pause_all_player() {
+
+            player_array[1].pause();
+            player_array[2].pause();
+            player_array[3].pause();
+            player_array[4].pause();
+            player_array[5].pause();
+
+            //player.playbackRate = player.playbackRate * play_speed_factor;
+        }
+
+        function btn_50_speed_click() {
+            play_speed_factor = 0.5;
+            reset_all_play_speed()
+        }
+        function btn_75_speed_click() {
+            play_speed_factor = 0.75;
+            reset_all_play_speed()
+        }
+        function btn_100_speed_click() {
+            play_speed_factor = 1;
+            reset_all_play_speed()
+        }
+        function btn_150_speed_click() {
+            play_speed_factor = 1.5;
+            reset_all_play_speed()
+        }
+        function btn_200_speed_click() {
+            play_speed_factor = 2;
+            reset_all_play_speed()
+        }
+        function btn_400_speed_click() {
+            play_speed_factor = 4;
+            reset_all_play_speed()
+        }
+
+        function btn_800_speed_click() {
+            play_speed_factor = 8;
+            reset_all_play_speed()
+        }
+
+
+
+        function btn_hide_show_label_txt_click() {
+            var div1 = document.getElementById("label_txt");
+
+            if (div1.style.display == 'block') div1.style.display = 'none';
+
+            else div1.style.display = 'block';
+        }
+
+        function btn_hide_show_audio_controlsclick() {
+            var div1 = document.getElementById("audio_controls_div");
+
+            if (div1.style.display == 'block') div1.style.display = 'none';
+
+            else div1.style.display = 'block';
+        }
+
+        function btn_hide_show_debug_tool_click() {
+            var div1 = document.getElementById("debug_tool");
+
+            if (div1.style.display == 'block') div1.style.display = 'none';
+
+            else div1.style.display = 'block';
+        }
+
+        var label_info_fontSize_default = 32;
+        var label_info_fontSize_increase_or_decrease_step = 12;
+        var label_info_fontSize_min = 16;
+        var label_info_fontSize_current = label_info_fontSize_default;
+
+        function btn_increase_label_txt_fontclick() {
+            label_info_fontSize_current = label_info_fontSize_current + label_info_fontSize_increase_or_decrease_step;
+            //label_info.fontSize = label_info.fontSize + label_info_fontSize_increase_or_decrease_step;
+            //label_info.style['font-size'] = label_info_fontSize_increase_or_decrease_step + label_info.style['font-size'];
+            label_info.style.fontSize = label_info_fontSize_current + 'px';
+
+
+        }
+
+        function btn_decrease_label_txt_fontclick() {
+            if (label_info_fontSize_current > label_info_fontSize_min) {
+                label_info_fontSize_current = label_info_fontSize_current - label_info_fontSize_increase_or_decrease_step;
+                // label_info.fontSize = label_info.fontSize - label_info_fontSize_increase_or_decrease_step;
+                //label_info.style['font-size'] = label_info.style['font-size'] -  label_info_fontSize_increase_or_decrease_step ;
+                label_info.style.fontSize = label_info_fontSize_current + 'px';
+            }
+        }
+        function btn_loop_click() {
+
+
+            mode_loop = 1;
+            restore_btn_color(btn_loop, btn_play_color);
+            restore_btn_color(btn_once, btn_init_color);
+            restore_btn_color(btn_continue, btn_init_color);
+            restore_btn_color(btn_random, btn_init_color);
+
+        }
+        function btn_once_click() {
+
+
+            mode_loop = 2;
+            restore_btn_color(btn_loop, btn_init_color);
+            restore_btn_color(btn_once, btn_play_color);
+            restore_btn_color(btn_continue, btn_init_color);
+            restore_btn_color(btn_random, btn_init_color);
+
+
+        }
+        function btn_continue_click() {
+
+
+            mode_loop = 3;
+            restore_btn_color(btn_loop, btn_init_color);
+            restore_btn_color(btn_once, btn_init_color);
+            restore_btn_color(btn_continue, btn_play_color);
+            restore_btn_color(btn_random, btn_init_color);
+
+
+
+        }
+
+
+        function btn_random_click() {
+            mode_loop = 4;
+            restore_btn_color(btn_loop, btn_init_color);
+            restore_btn_color(btn_once, btn_init_color);
+            restore_btn_color(btn_continue, btn_init_color);
+            restore_btn_color(btn_random, btn_play_color);
+
+
+
+        }
+
+        function btn_stop_click() {
+            mode_stop = 1 - mode_stop;
+            clearTimeout(timer);
+            pause_all_player();
+            clearTimeout(timer);
+        }
+
+        function btn_next_click() {
+
+
+            clearTimeout(timer);
+            pause_all_player();
+            get_next_item(global__unit, global__part, global__num);
+            play_item(next__unit, next__part, next__num);
+
+        }
+
+        var debug_tt = 0;
+        var time_segment; //= new Array();
+        function btn_get_start_end_time_click() {
+            time_segment[debug_tt] = player_array[5].currentTime;
+            time_segment[debug_tt] = time_segment[debug_tt].toFixed(1);
+            debug_tt++;
+            btn_show_start_end_time_click();
+        }
+
+        function btn_show_start_end_time_click() {
+            //alert("adfsaf\nsdfasf\n");
+            var tt = 0;
+            var msg = "";
+            while (tt < debug_tt) {
+                msg = msg + " " + time_segment[tt];
+                if ((tt + 1) % 2 == 0) {
+                    msg = msg + " \n <br \>";
+                }
+                tt++;
+            }
+            var dde = document.getElementById("debug_txt");
+            dde.innerHTML = "--";
+            dde.innerHTML = msg;
+            //alert(msg);
+        }
+
+        /*
+myVid.play();
+myVid.addEventListener("canplay",function() { myVid.currentTime = 5;});
+
+
+var x = document.getElementById("lesson");
+var cur = 0;
+var flag = 0;
+
+var func = function(){
+if (cur >0  && x.currentTime >= cur) {
+        cur = 0;
+        x.pause();
+        x.removeEventListener("timeupdate", func);
+}
+};
+
+function startplay(starttime,endtime)
+{
+if(flag == 0)
+{
+        flag = 1;
+        x.autoplay="autoplay";
+        x.load();
+}
+      x.currentTime=starttime;
+      x.fastSeek(starttime);
+      cur = endtime;
+      x.addEventListener("timeupdate", func);
+      x.play();
+}
+
+function stopplay()
+{
+cur = 0;
+      x.pause();
+}
+*/
+
+        /**/</script>
+
+
+    <script>
+
+        function multi_line_para() {
+            var text2 = "line 1. <br/>line 2. <br/>line 3.";
+            var el2 = document.getElementById('text2');
+            el2.innerHTML = text2;
+        }
+
+        /**/</script>
+
+    <input type="file" id="mp3_file" onchange="onInputFileChange()" hidden>
+
+    <div style="text-align:center" hidden>
+        <!-- 块级标签 -->
+        <span>
+            我是文本所在标签1，文本居中显示
+        </span>
+        <!-- 行内标签 -->
+        <div style="display:inline-block;">我是文本所在标签2，文本居中显示</div> <!-- 行内块级标签 -->
+    </div>
+
+    <input id="btn_unit1" type="button" value="unit1" onclick="btn_unit1_click()" />
+    <input id="btn_unit2" type="button" value="unit2" onclick="btn_unit2_click()" />
+    <input id="btn_unit3" type="button" value="unit3" onclick="btn_unit3_click()" />
+    <input id="btn_unit4" type="button" value="unit4" onclick="btn_unit4_click()" />
+    <input id="btn_unit5" type="button" value="unit5" onclick="btn_unit5_click()" />
+    <br />
+    <input id="btn_part1" type="button" value="part1" onclick="btn_part1_click()" />
+    <input id="btn_part2" type="button" value="part2" onclick="btn_part2_click()" />
+    <input id="btn_part3" type="button" value="part3" onclick="btn_part3_click()" />
+    <input id="btn_part4" type="button" value="part4" onclick="btn_part4_click()" />
+    <input id="btn_part5" type="button" value="part5" onclick="btn_part5_click()" />
+    <input id="btn_part6" type="button" value="part6" onclick="btn_part6_click()" />
+    <br />
+
+    <input id="btn_num1" type="button" value="NO.1" onclick="btn_num1_click()" />
+    <input id="btn_num2" type="button" value="NO.2" onclick="btn_num2_click()" />
+    <input id="btn_num3" type="button" value="NO.3" onclick="btn_num3_click()" />
+    <input id="btn_num4" type="button" value="NO.4" onclick="btn_num4_click()" />
+    <input id="btn_num5" type="button" value="NO.5" onclick="btn_num5_click()" />
+    <input id="btn_num6" type="button" value="NO.6" onclick="btn_num6_click()" />
+    <input id="btn_num7" type="button" value="NO.7" onclick="btn_num7_click()" />
+    <input id="btn_num8" type="button" value="NO.8" onclick="btn_num8_click()" />
+
+    <input id="btn_num9" type="button" value="NO.9" onclick="btn_num9_click()" />
+    <input id="btn_num10" type="button" value="NO.10" onclick="btn_num10_click()" />
+
+    <br />
+
+    <input id="btn_hide_show_audio_controls" type="button" value="显示/隐藏播放器" onclick="btn_hide_show_audio_controlsclick()" />
+
+    <div style="text-align:center" id="audio_controls_div">
+
+        <audio controls id="player1">
+
+
+            <source src="./六年级上册第一单元.mp3" type="audio/mpeg" id="lesson">
+
+            您的浏览器不支持 audio 元素。
+
+        </audio>
+        <audio controls id="player2">
+
+
+            <source src="./六年级上册第二单元.mp3" type="audio/mpeg" id="lesson">
+
+            您的浏览器不支持 audio 元素。
+
+        </audio>
+        <audio controls id="player3">
+
+
+            <source src="./六年级上册第三单元.mp3" type="audio/mpeg" id="lesson">
+
+            您的浏览器不支持 audio 元素。
+
+        </audio>
+        <audio controls id="player4">
+
+
+            <source src="./六年级上册第四单元.mp3" type="audio/mpeg" id="lesson">
+
+            您的浏览器不支持 audio 元素。
+
+        </audio>
+        <audio controls id="player5">
+
+
+            <source src="./六年级上册第五单元.mp3" type="audio/mpeg" id="lesson">
+
+            您的浏览器不支持 audio 元素。
+
+        </audio>
+    </div>
+
+
+    <br />
+    <input id="btn_50_speed" type="button" value="0.5速度" onclick="btn_50_speed_click()" />
+    <input id="btn_75_speed" type="button" value="0.75速度" onclick="btn_75_speed_click()" />
+    <input id="btn_100_speed" type="button" value="正常速度" onclick="btn_100_speed_click()" />
+    <input id="btn_150_speed" type="button" value="1.5倍速度" onclick="btn_150_speed_click()" />
+    <input id="btn_200_speed" type="button" value="2倍速度" onclick="btn_200_speed_click()" />
+    <input id="btn_400_speed" type="button" value="4倍速度" onclick="btn_400_speed_click()" />
+
+    <br />
+    <input id="btn_loop" type="button" value="循环播放" onclick="btn_loop_click()" />
+    <input id="btn_once" type="button" value="单次播放" onclick="btn_once_click()" />
+    <input id="btn_continue" type="button" value="连续播放" onclick="btn_continue_click()" />
+    <input id="btn_random" type="button" value="随机播放" onclick="btn_random_click()" />
+    <br />
+
+    <input id="btn_next" type="button" value="下一个" onclick="btn_next_click()" />
+    &nbsp;    &nbsp;   &nbsp;
+    <input id="btn_stop" type="button" value="--  停止  --" onclick="btn_stop_click()" />
+    <br />
+
+
+
+    <input id="btn_hide_show_label_txt" type="button" value="显示原文/隐藏原文" onclick="btn_hide_show_label_txt_click()" />
+    <input id="btn_increase_label_txt_font" type="button" value="字体增大" onclick="btn_increase_label_txt_fontclick()" />
+    <input id="btn_decrease_label_txt_font" type="button" value="字体减小" onclick="btn_decrease_label_txt_fontclick()" />
+    <br />
+    <p id="label_txt">  <font size="8"> text here. 123012 </font>   </p>
+    <!--
+    <button onclick="multi_line_para()">on paragraph</button>
+         -->
+    <br />
+    <input id="btn_hide_show_debug_tool" type="button" value="显示/隐藏(仅供调试使用)" onclick="btn_hide_show_debug_tool_click()" />
+    <!--  <div hidden> -->
+    <div id="debug_tool">
+
+        <input id="btn_800_speed" type="button" value="8速度" onclick="btn_800_speed_click()" />
+        <input id="btn_clear_start_end_time" type="button" value="clear start end time" onclick="function tt() { debug_tt = 0; time_segment.length =0; };" />
+        <input id="btn_get_start_end_time" type="button" value="get start end time" onclick="btn_get_start_end_time_click()" />
+        <input id="btn_show_start_end_time" type="button" value="show start end time" onclick="btn_show_start_end_time_click()" />
+        <br />
+        <p id="debug_txt">  <font size="8"> debug info. </font>   </p>
+    </div>
+
+
+</body>
+</html>

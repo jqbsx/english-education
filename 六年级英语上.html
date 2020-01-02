@@ -67,10 +67,12 @@ body,div{padding: 0;margin: 0;}
         /*
          * 
          * 
- 小学六年级英语上（广东版） 听力训练
-多种播放模式:单题循环播放，单题单次播放，按顺序自动播放，随机自动播放
-多种播放速度: 0.5倍速度播放--2倍速度播放
+english-education
+小学六年级英语上（广东版） 听力训练
+多种播放模式: 单题循环播放，单题单次播放，按顺序自动播放，随机自动播放。
+多种播放速度: 0.5倍速度播放--2倍速度播放。 慢，有助于听清每一个发音， 快，节省时间。
 可显示或隐藏听力原文。
+适用于电脑，手机，平板 , 随时随地进行听力强化。
          * 
          * 
          * */
@@ -888,7 +890,7 @@ body,div{padding: 0;margin: 0;}
                         cur_init_player = cur_init_player + 1;
                         break;
                     case 7:
-                        label_info.innerHTML = "init finished.";
+                        label_info.innerHTML = "Anroid init finished.";
                         clearInterval(tcofia);
                         pause_all_player();
                         break;
@@ -896,6 +898,7 @@ body,div{padding: 0;margin: 0;}
                         break;
                 }
             } else if (isIpad) {
+                /*
                 if (cur_init_player == 1) {
                     //pause_all_player();
                     //player_array[cur_init_player].play();
@@ -912,8 +915,59 @@ body,div{padding: 0;margin: 0;}
                         pause_all_player();
                     }
                 }
+                */
+                                switch (cur_init_player) {
+                    case 1:
+                                        label_info.innerHTML = "init" + cur_init_player;
+                                        btn_unit1_click();
+                        //pause_all_player();
+                        //player_array[cur_init_player].play();
+                        cur_init_player = cur_init_player + 1;
+                                        break;
+case 2: 
+                                        label_info.innerHTML = "init" + cur_init_player;
+                                        btn_unit2_click();
+                        //pause_all_player();
+                        //player_array[cur_init_player].play();
+                        cur_init_player = cur_init_player + 1;
+                                        break;
+
+                                    case 3: 
+                                        label_info.innerHTML = "init" + cur_init_player;
+                                        btn_unit3_click();
+                        //pause_all_player();
+                        //player_array[cur_init_player].play();
+                        cur_init_player = cur_init_player + 1;
+                                        break;
+                                                                        case 4: 
+                                        label_info.innerHTML = "init" + cur_init_player;
+                                        btn_unit4_click();
+                        //pause_all_player();
+                        //player_array[cur_init_player].play();
+                        cur_init_player = cur_init_player + 1;
+                                        break;
+                                                                        case 5: 
+                                        label_info.innerHTML = "init" + cur_init_player;
+                                        btn_unit5_click();
+                        //pause_all_player();
+                        //player_array[cur_init_player].play();
+                        cur_init_player = cur_init_player + 1;
+                                        break;
+                    case 6:
+                        cur_init_player = cur_init_player + 1;
+                        break;
+                    case 7:
+                        label_info.innerHTML = "ipad init finished.";
+                        clearInterval(tcofia);
+                        pause_all_player();
+                        break;
+                    default:
+                        break;
+                }
+
+
             } else {
-                label_info.innerHTML = "init finished.";
+                label_info.innerHTML = "PC init finished.";
                 clearInterval(tcofia);
                 pause_all_player();
             }

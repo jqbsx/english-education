@@ -7,7 +7,7 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" id ="view1"  content="width=device-width, initial-scale=1, maximum-scale=4, user-scalable=yes">
 <title>六年级英语(上)</title>
 <style type="text/css">
 
@@ -63,6 +63,17 @@ body,div{padding: 0;margin: 0;}
     -->
     <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript">
+
+        /*
+         * 
+         * 
+ 小学六年级英语上（广东版） 听力训练
+多种播放模式:单题循环播放，单题单次播放，按顺序自动播放，随机自动播放
+多种播放速度: 0.5倍速度播放--2倍速度播放
+可显示或隐藏听力原文。
+         * 
+         * 
+         * */
         /*
 
         $(function () {
@@ -155,17 +166,17 @@ body,div{padding: 0;margin: 0;}
 
 
         var ua = window.navigator.userAgent;
-         var   isQQBrowser = /(?:MQQBrowser | QQ)/.test(ua),
+        var isQQBrowser = /(?:MQQBrowser | QQ)/.test(ua),
             isWindowsPhone = /(?:Windows Phone)/.test(ua),
             isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
             isAndroid = /(?:Android)/.test(ua),
             isFireFox = /(?:Firefox)/.test(ua),
             isChrome = /(?:Chrome|CriOS)/.test(ua),
             isIpad = /(?:iPad|PlayBook)/.test(ua),
-            isTablet = /(?:iPad|PlayBook)/.test(ua)||(isFireFox && /(?:Tablet)/.test(ua)),
+            isTablet = /(?:iPad|PlayBook)/.test(ua) || (isFireFox && /(?:Tablet)/.test(ua)),
             isSafari = /(?:Safari)/.test(ua),
             isPhone = /(?:iPhone)/.test(ua) && !isTablet,
-            isOpen= /(?:Opera Mini)/.test(ua),
+            isOpen = /(?:Opera Mini)/.test(ua),
             isUC = /(?:UCWEB|UCBrowser)/.test(ua),
             isPc = !isPhone && !isAndroid && !isSymbian;
 
@@ -328,8 +339,8 @@ body,div{padding: 0;margin: 0;}
             "Does Lisa have a stomachache?",
 
             "Hi, I'm Tom. My friend and I are feeling bad today.I have a bad cold. ??? too much cake yesterday, so he has stomachache this morning. \
-            Peter hurt his foot, he should stay in bed . Lily should see the dentist, because she has a toothache. Lisa has a fever, she can't go to \
-            school.How about Ben? He has a headache with sad. ",
+                        Peter hurt his foot, he should stay in bed . Lily should see the dentist, because she has a toothache. Lisa has a fever, she can't go to \
+                        school.How about Ben? He has a headache with sad. ",
             // unit 2
             "Turn left at the corner please.",
             "Go straight to the park.",
@@ -353,7 +364,7 @@ body,div{padding: 0;margin: 0;}
             "Gogo, we are going to the movie theater. Yean, let's go and see a movie. Are the going to see a movie? ",
 
             "Mike is new in Zhuhai, he comes from London, He is going to the  ??? park. He doesn't have map, so he need to ask for a police officer for help. The \
-             plice officer tells him to go straight to the bus stop and turn left, the park is next to the supermarket.",
+                         plice officer tells him to go straight to the bus stop and turn left, the park is next to the supermarket.",
             //unit 3
             "What's wrong with you?",
             "It's cold , you should put on your sweat.",
@@ -377,8 +388,8 @@ body,div{padding: 0;margin: 0;}
             "Jack, can you eat planty of green food? It's good for you.   What's green food?",
 
             "Tom and Jack are good friends, Tom doesn't like playing sports and eating green food. He is eating some icecream , cheese and hanbgurs . \
-             His is unhealth. Jack likes running and playing basketball, he likes eating enough vegetables, He eats them everyday. Eating planty of vegetable is \
-             good for us.",
+                         His is unhealth. Jack likes running and playing basketball, he likes eating enough vegetables, He eats them everyday. Eating planty of vegetable is \
+                         good for us.",
             // unit 4
             "This is a beautyful park.",
             "It's warm in spring.",
@@ -402,8 +413,8 @@ body,div{padding: 0;margin: 0;}
             "The cat is wet, what can we do for the little cat?",
 
             "Yesterday was Sunday, it was sunny and hot. There was a great beath party. There were a lot of people on the beath. Some danced to music. \
-             Some people played games.Some girls played beach vollyball. They were all happy. After the part, the beach ware dirty.  \
-            There were trash everywhere.",
+                         Some people played games.Some girls played beach vollyball. They were all happy. After the part, the beach ware dirty.  \
+                        There were trash everywhere.",
 
             //unit 5
             "Jenny is reading a book about animals.",
@@ -414,8 +425,8 @@ body,div{padding: 0;margin: 0;}
             "There are lots of red leafs in the park.",
 
             "Last week, Gogo went to Tailand . It was a great trip. Gogo did a lot of interesting things in Tailand. First , he visited his friends,\
-            and he planted the tree with his friend, next ??? listen some music, the music was great then in the evening, he drawn an nice picture for his friend.\
-           after he was hungry. He ate some food. The food was tasty. He loved it. ",
+                        and he planted the tree with his friend, next ??? listen some music, the music was great then in the evening, he drawn an nice picture for his friend.\
+                       after he was hungry. He ate some food. The food was tasty. He loved it. ",
 
             "Was the weather hot yesterday?",
             "Where did he come from?",
@@ -425,7 +436,7 @@ body,div{padding: 0;margin: 0;}
             "Jeany hurt her leg last summer, she was in the hospital.  What was her summer like?",
 
             "Last fall , my sister and I was in USA , it was cold and windy there. We visited the parks. The parks were beautyful. There were a lot of red leafs in the park.\
-             We watched a great circus show in the big park. We had a lot of fun . The food was great. We all liked the food very much. We stayed in USA for a week.  "
+                         We watched a great circus show in the big park. We had a lot of fun . The food was great. We all liked the food very much. We stayed in USA for a week.  "
         ];
 
         var data_array_time = [
@@ -834,7 +845,7 @@ body,div{padding: 0;margin: 0;}
             player_array[3].play();
             player_array[4].play();
             player_array[5].play();
-            
+
             sleep(3000);
             pause_all_player();
             */
@@ -846,9 +857,9 @@ body,div{padding: 0;margin: 0;}
             //btn_unit5_click();
             //btn_unit1_click();
             //sleep(5000);
-            //btn_stop_click() 
-             
-            label_info.innerHTML = "id 12314";
+            //btn_stop_click()
+
+            label_info.innerHTML = "id 12315";
             if (isPc) {
 
             } else {
@@ -859,32 +870,55 @@ body,div{padding: 0;margin: 0;}
                     tcofia = setInterval("timer_callback_only_for_init_andrio()", 2000);
                 }
             }
-            
+
         }
-        
+
         var tcofia;
         var cur_init_player = 1;
         function timer_callback_only_for_init_andrio() {
-            switch (cur_init_player) {
-                case 1: case 2: case 3: case 4: case 5:
-                    label_info.innerHTML = "init" + cur_init_player;
-                    pause_all_player();
-                    player_array[cur_init_player].play();
-                    cur_init_player = cur_init_player + 1;
-                    break;
-                case 6:
-                    cur_init_player = cur_init_player + 1;
-                    break;
-                case 7:
-                    label_info.innerHTML = "init finished." ;
-                    clearInterval(tcofia);
-                    pause_all_player();
-                    break;
-                default:
-                    break;
+            if (isAndroid) {
+                switch (cur_init_player) {
+                    case 1: case 2: case 3: case 4: case 5:
+                        label_info.innerHTML = "init" + cur_init_player;
+                        pause_all_player();
+                        player_array[cur_init_player].play();
+                        cur_init_player = cur_init_player + 1;
+                        break;
+                    case 6:
+                        cur_init_player = cur_init_player + 1;
+                        break;
+                    case 7:
+                        label_info.innerHTML = "init finished.";
+                        clearInterval(tcofia);
+                        pause_all_player();
+                        break;
+                    default:
+                        break;
+                }
+            } else if (isIpad) {
+                if (cur_init_player == 1) {
+                    //pause_all_player();
+                    //player_array[cur_init_player].play();
+                    player_array[1].play();
+                    player_array[2].play();
+                    player_array[3].play();
+                    player_array[4].play();
+                    player_array[5].play();
+                } else {
+                    cur_init_player++;
+                    if (cur_init_player == 4) {
+                        label_info.innerHTML = "init finished.";
+                        clearInterval(tcofia);
+                        pause_all_player();
+                    }
+                }
+            } else {
+                label_info.innerHTML = "init finished.";
+                clearInterval(tcofia);
+                pause_all_player();
             }
-            
-           
+
+
         }
 
         function btn_unit1_click() {
@@ -1600,6 +1634,33 @@ body,div{padding: 0;margin: 0;}
             dde.innerHTML = msg;
             //alert(msg);
         }
+        var scale_div = 1;
+        function btn_zoom_in_click() {
+            /*
+            var astt = document.getElementById("item_btns_div");
+            scale_div = scale_div + 0.24;
+            astt.style.scale = 'scale(' + scale_div + ')';
+            */
+            /*
+            document.getElementById('view1').setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=4.0, user-scalable=no');
+            */
+            scale_div = scale_div + 0.4
+            document.getElementsByTagName('body')[0].style.zoom = scale_div;
+        }
+         var scale_div = 1;
+        function btn_zoom_out_click() {
+            /*
+            if (scale_div > 0.6) {
+                var astt = document.getElementById("item_btns_div");
+                scale_div = scale_div - 0.24;
+                astt.style.scale = 'scale(' + scale_div + ')';
+            }
+            */
+            if (scale_div > 0.8) {
+                 scale_div = scale_div - 0.4;
+                document.getElementsByTagName('body')[0].style.zoom = scale_div;
+            }
+        }
 
         /*
 myVid.play();
@@ -1664,32 +1725,35 @@ cur = 0;
         <div style="display:inline-block;">我是文本所在标签2，文本居中显示</div> <!-- 行内块级标签 -->
     </div>
 
-    <input id="btn_unit1" type="button" value="unit1" onclick="btn_unit1_click()" />
-    <input id="btn_unit2" type="button" value="unit2" onclick="btn_unit2_click()" />
-    <input id="btn_unit3" type="button" value="unit3" onclick="btn_unit3_click()" />
-    <input id="btn_unit4" type="button" value="unit4" onclick="btn_unit4_click()" />
-    <input id="btn_unit5" type="button" value="unit5" onclick="btn_unit5_click()" />
-    <br />
-    <input id="btn_part1" type="button" value="part1" onclick="btn_part1_click()" />
-    <input id="btn_part2" type="button" value="part2" onclick="btn_part2_click()" />
-    <input id="btn_part3" type="button" value="part3" onclick="btn_part3_click()" />
-    <input id="btn_part4" type="button" value="part4" onclick="btn_part4_click()" />
-    <input id="btn_part5" type="button" value="part5" onclick="btn_part5_click()" />
-    <input id="btn_part6" type="button" value="part6" onclick="btn_part6_click()" />
-    <br />
+    <input id="btn_zoom_in" type="button" value="放大页面" onclick="btn_zoom_in_click()" />
+    <input id="btn_zoom_out" type="button" value="缩小页面" onclick="btn_zoom_out_click()" />
+    <div id="item_btns_div">
+        <input id="btn_unit1" type="button" value="unit1" onclick="btn_unit1_click()" />
+        <input id="btn_unit2" type="button" value="unit2" onclick="btn_unit2_click()" />
+        <input id="btn_unit3" type="button" value="unit3" onclick="btn_unit3_click()" />
+        <input id="btn_unit4" type="button" value="unit4" onclick="btn_unit4_click()" />
+        <input id="btn_unit5" type="button" value="unit5" onclick="btn_unit5_click()" />
+        <br />
+        <input id="btn_part1" type="button" value="part1" onclick="btn_part1_click()" />
+        <input id="btn_part2" type="button" value="part2" onclick="btn_part2_click()" />
+        <input id="btn_part3" type="button" value="part3" onclick="btn_part3_click()" />
+        <input id="btn_part4" type="button" value="part4" onclick="btn_part4_click()" />
+        <input id="btn_part5" type="button" value="part5" onclick="btn_part5_click()" />
+        <input id="btn_part6" type="button" value="part6" onclick="btn_part6_click()" />
+        <br />
 
-    <input id="btn_num1" type="button" value="NO.1" onclick="btn_num1_click()" />
-    <input id="btn_num2" type="button" value="NO.2" onclick="btn_num2_click()" />
-    <input id="btn_num3" type="button" value="NO.3" onclick="btn_num3_click()" />
-    <input id="btn_num4" type="button" value="NO.4" onclick="btn_num4_click()" />
-    <input id="btn_num5" type="button" value="NO.5" onclick="btn_num5_click()" />
-    <input id="btn_num6" type="button" value="NO.6" onclick="btn_num6_click()" />
-    <input id="btn_num7" type="button" value="NO.7" onclick="btn_num7_click()" />
-    <input id="btn_num8" type="button" value="NO.8" onclick="btn_num8_click()" />
+        <input id="btn_num1" type="button" value="NO.1" onclick="btn_num1_click()" />
+        <input id="btn_num2" type="button" value="NO.2" onclick="btn_num2_click()" />
+        <input id="btn_num3" type="button" value="NO.3" onclick="btn_num3_click()" />
+        <input id="btn_num4" type="button" value="NO.4" onclick="btn_num4_click()" />
+        <input id="btn_num5" type="button" value="NO.5" onclick="btn_num5_click()" />
+        <input id="btn_num6" type="button" value="NO.6" onclick="btn_num6_click()" />
+        <input id="btn_num7" type="button" value="NO.7" onclick="btn_num7_click()" />
+        <input id="btn_num8" type="button" value="NO.8" onclick="btn_num8_click()" />
 
-    <input id="btn_num9" type="button" value="NO.9" onclick="btn_num9_click()" />
-    <input id="btn_num10" type="button" value="NO.10" onclick="btn_num10_click()" />
-
+        <input id="btn_num9" type="button" value="NO.9" onclick="btn_num9_click()" />
+        <input id="btn_num10" type="button" value="NO.10" onclick="btn_num10_click()" />
+    </div>
     <br />
 
     <input id="btn_hide_show_audio_controls" type="button" value="显示/隐藏播放器" onclick="btn_hide_show_audio_controlsclick()" />

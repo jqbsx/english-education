@@ -65,16 +65,23 @@ body,div{padding: 0;margin: 0;}
     <script type="text/javascript">
 
         /*
-         * 
-         * 
+         *
+         *
 english-education
 小学六年级英语上（广东版） 听力训练
 多种播放模式: 单题循环播放，单题单次播放，按顺序自动播放，随机自动播放。
 多种播放速度: 0.5倍速度播放--2倍速度播放。 慢，有助于听清每一个发音， 快，节省时间。
 可显示或隐藏听力原文。
 适用于电脑，手机，平板 , 随时随地进行听力强化。
-         * 
-         * 
+
+一个六年级听力训练的工具，自认为省时，方便，有效。电脑，手机，平板都能用。但是由于孩子们年龄小，教育有特殊性，请大家以李老师的建议为准。
+
+计算机下载后，解压，用浏览器打开其中的html文件即可
+
+手机或者平板用qq浏览器打开压缩文件，再打开其中的html文件即可（其它的浏览器我没有测试过）
+
+         *
+         *
          * */
         /*
 
@@ -180,7 +187,7 @@ english-education
             isPhone = /(?:iPhone)/.test(ua) && !isTablet,
             isOpen = /(?:Opera Mini)/.test(ua),
             isUC = /(?:UCWEB|UCBrowser)/.test(ua),
-            isPc = !isPhone && !isAndroid && !isSymbian &&  !isIpad ;
+            isPc = !isPhone && !isAndroid && !isSymbian && !isIpad;
 
 
 
@@ -341,8 +348,8 @@ english-education
             "Does Lisa have a stomachache?",
 
             "Hi, I'm Tom. My friend and I are feeling bad today.I have a bad cold. ??? too much cake yesterday, so he has stomachache this morning. \
-                        Peter hurt his foot, he should stay in bed . Lily should see the dentist, because she has a toothache. Lisa has a fever, she can't go to \
-                        school.How about Ben? He has a headache with sad. ",
+                            Peter hurt his foot, he should stay in bed . Lily should see the dentist, because she has a toothache. Lisa has a fever, she can't go to \
+                            school.How about Ben? He has a headache with sad. ",
             // unit 2
             "Turn left at the corner please.",
             "Go straight to the park.",
@@ -366,7 +373,7 @@ english-education
             "Gogo, we are going to the movie theater. Yean, let's go and see a movie. Are the going to see a movie? ",
 
             "Mike is new in Zhuhai, he comes from London, He is going to the  ??? park. He doesn't have map, so he need to ask for a police officer for help. The \
-                         plice officer tells him to go straight to the bus stop and turn left, the park is next to the supermarket.",
+                             plice officer tells him to go straight to the bus stop and turn left, the park is next to the supermarket.",
             //unit 3
             "What's wrong with you?",
             "It's cold , you should put on your sweat.",
@@ -390,8 +397,8 @@ english-education
             "Jack, can you eat planty of green food? It's good for you.   What's green food?",
 
             "Tom and Jack are good friends, Tom doesn't like playing sports and eating green food. He is eating some icecream , cheese and hanbgurs . \
-                         His is unhealth. Jack likes running and playing basketball, he likes eating enough vegetables, He eats them everyday. Eating planty of vegetable is \
-                         good for us.",
+                             His is unhealth. Jack likes running and playing basketball, he likes eating enough vegetables, He eats them everyday. Eating planty of vegetable is \
+                             good for us.",
             // unit 4
             "This is a beautyful park.",
             "It's warm in spring.",
@@ -415,8 +422,8 @@ english-education
             "The cat is wet, what can we do for the little cat?",
 
             "Yesterday was Sunday, it was sunny and hot. There was a great beath party. There were a lot of people on the beath. Some danced to music. \
-                         Some people played games.Some girls played beach vollyball. They were all happy. After the part, the beach ware dirty.  \
-                        There were trash everywhere.",
+                             Some people played games.Some girls played beach vollyball. They were all happy. After the part, the beach ware dirty.  \
+                            There were trash everywhere.",
 
             //unit 5
             "Jenny is reading a book about animals.",
@@ -427,8 +434,8 @@ english-education
             "There are lots of red leafs in the park.",
 
             "Last week, Gogo went to Tailand . It was a great trip. Gogo did a lot of interesting things in Tailand. First , he visited his friends,\
-                        and he planted the tree with his friend, next ??? listen some music, the music was great then in the evening, he drawn an nice picture for his friend.\
-                       after he was hungry. He ate some food. The food was tasty. He loved it. ",
+                            and he planted the tree with his friend, next ??? listen some music, the music was great then in the evening, he drawn an nice picture for his friend.\
+                           after he was hungry. He ate some food. The food was tasty. He loved it. ",
 
             "Was the weather hot yesterday?",
             "Where did he come from?",
@@ -438,7 +445,7 @@ english-education
             "Jeany hurt her leg last summer, she was in the hospital.  What was her summer like?",
 
             "Last fall , my sister and I was in USA , it was cold and windy there. We visited the parks. The parks were beautyful. There were a lot of red leafs in the park.\
-                         We watched a great circus show in the big park. We had a lot of fun . The food was great. We all liked the food very much. We stayed in USA for a week.  "
+                             We watched a great circus show in the big park. We had a lot of fun . The food was great. We all liked the food very much. We stayed in USA for a week.  "
         ];
 
         var data_array_time = [
@@ -861,7 +868,7 @@ english-education
             //sleep(5000);
             //btn_stop_click()
 
-            label_info.innerHTML = "init 12316.";
+            label_info.innerHTML = "init 12317.";
             if (isPc) {
 
             } else {
@@ -869,7 +876,7 @@ english-education
                 if (isAndroid) {
                     tcofia = setInterval("timer_callback_only_for_init_andrio()", 1000);
                 } else {
-                    tcofia = setInterval("timer_callback_only_for_init_andrio()", 1000);
+                    //tcofia = setInterval("timer_callback_only_for_init_andrio()", 2000);
                 }
             }
 
@@ -879,7 +886,13 @@ english-education
         var tcofia;
         var cur_init_player = 1;
         function timer_callback_only_for_init_andrio() {
-            if (isAndroid) {
+            if (isPc) {
+                 /*
+                label_info.innerHTML = "PC init finished.";
+                clearInterval(tcofia);
+                pause_all_player();
+                */
+            }else     if ((isAndroid)) {
                 switch (cur_init_player) {
                     case 1: case 2: case 3: case 4: case 5:
                         label_info.innerHTML = "init" + cur_init_player;
@@ -898,7 +911,7 @@ english-education
                     default:
                         break;
                 }
-            } else if (isIpad) {
+            } else /*if (isIpad) */ {
                 /*
                 if (cur_init_player == 1) {
                     //pause_all_player();
@@ -917,64 +930,81 @@ english-education
                     }
                 }
                 */
-                                switch (cur_init_player) {
+                
+                switch (cur_init_player) {
                     case 1:
-                                        label_info.innerHTML = "init" + cur_init_player;
-                                        btn_unit1_click();
+                        label_info.innerHTML = "init" + cur_init_player;
+                        //btn_unit1_click();
                         //pause_all_player();
-                        //player_array[cur_init_player].play();
+                        player_array[cur_init_player].play();
                         cur_init_player = cur_init_player + 1;
-                                        break;
-case 2: 
-                                        label_info.innerHTML = "init" + cur_init_player;
-                                        btn_unit2_click();
+                        break;
+                    case 2:
+                        label_info.innerHTML = "init" + cur_init_player;
+                        //btn_unit2_click();
                         //pause_all_player();
-                        //player_array[cur_init_player].play();
+                        player_array[cur_init_player].play();
                         cur_init_player = cur_init_player + 1;
-                                        break;
+                        break;
 
-                                    case 3: 
-                                        label_info.innerHTML = "init" + cur_init_player;
-                                        btn_unit3_click();
+                    case 3:
+                        label_info.innerHTML = "init" + cur_init_player;
+                        //btn_unit3_click();
                         //pause_all_player();
-                        //player_array[cur_init_player].play();
+                        player_array[cur_init_player].play();
                         cur_init_player = cur_init_player + 1;
-                                        break;
-                                                                        case 4: 
-                                        label_info.innerHTML = "init" + cur_init_player;
-                                        btn_unit4_click();
+                        break;
+                    case 4:
+                        label_info.innerHTML = "init" + cur_init_player;
+                        //btn_unit4_click();
                         //pause_all_player();
-                        //player_array[cur_init_player].play();
+                        player_array[cur_init_player].play();
                         cur_init_player = cur_init_player + 1;
-                                        break;
-                                                                        case 5: 
-                                        label_info.innerHTML = "init" + cur_init_player;
-                                        btn_unit5_click();
+                        break;
+                    case 5:
+                        label_info.innerHTML = "init" + cur_init_player;
+                        //btn_unit5_click();
                         //pause_all_player();
-                        //player_array[cur_init_player].play();
+                        player_array[cur_init_player].play();
                         cur_init_player = cur_init_player + 1;
-                                        break;
-                                    case 6:
-                                          btn_unit1_click();
+                        break;
+                    case 6:
+                        //btn_unit1_click();
                         cur_init_player = cur_init_player + 1;
                         break;
                     case 7:
                         label_info.innerHTML = "ipad init finished.";
-                                        clearInterval(tcofia);
-                                        btn_stop_click();
-                        //pause_all_player();
+                        clearInterval(tcofia);
+                        //btn_stop_click();
+                        pause_all_player();
                         break;
                     default:
                         break;
                 }
+                
+
+            } 
 
 
-            } else {
-                label_info.innerHTML = "PC init finished.";
-                clearInterval(tcofia);
-                pause_all_player();
-            }
+        }
 
+         function btn_ipad_init_click() {
+
+             //label_info.innerHTML = "ipad init ... 7 seconds maybe";
+             player_array[1].play();
+             //sleep(1500);
+             player_array[2].play();
+                  //sleep(1500);
+             player_array[3].play();
+             //sleep(1500);
+             player_array[4].play();
+             //sleep(1500);
+             player_array[5].play();
+             //sleep(1500);
+             pause_all_player();
+            label_info.innerHTML = "ipad init finished.";
+             //cur_init_player = 1;
+             //tcofia = setInterval("timer_callback_only_for_init_andrio()", 2000);
 
         }
 
@@ -1704,7 +1734,7 @@ case 2:
             scale_div = scale_div + 0.4
             document.getElementsByTagName('body')[0].style.zoom = scale_div;
         }
-         var scale_div = 1;
+        var scale_div = 1;
         function btn_zoom_out_click() {
             /*
             if (scale_div > 0.6) {
@@ -1714,7 +1744,7 @@ case 2:
             }
             */
             if (scale_div > 0.8) {
-                 scale_div = scale_div - 0.4;
+                scale_div = scale_div - 0.4;
                 document.getElementsByTagName('body')[0].style.zoom = scale_div;
             }
         }
@@ -1784,6 +1814,7 @@ cur = 0;
 
     <input id="btn_zoom_in" type="button" value="放大页面" onclick="btn_zoom_in_click()" />
     <input id="btn_zoom_out" type="button" value="缩小页面" onclick="btn_zoom_out_click()" />
+    <input id="btn_ipad_init" type="button" value="ipad iphone 请点击此按钮3次进行初始化" onclick="btn_ipad_init_click()" />
     <div id="item_btns_div">
         <input id="btn_unit1" type="button" value="unit1" onclick="btn_unit1_click()" />
         <input id="btn_unit2" type="button" value="unit2" onclick="btn_unit2_click()" />
